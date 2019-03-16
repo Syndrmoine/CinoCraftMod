@@ -25,7 +25,7 @@ public class mymod {
 
     public static CreativeTabs creativeTab = new CreativeTabs("cinocraft") {
         @Override
-        public ItemStack getTabIconItem() {
+        public ItemStack createIcon() {
             return new ItemStack(ModBlocks.cinofurnace);
         }
     };

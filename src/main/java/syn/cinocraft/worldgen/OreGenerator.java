@@ -42,6 +42,12 @@ public class OreGenerator implements IWorldGenerator {
             if (OregenConfig.GENERATE_OVERWORLD) {
                 addOreSpawn(ModBlocks.blockCinoOre, (byte) OreType.ORE_OVERWORLD.ordinal(), Blocks.STONE, world, random, chunkX * 16, chunkZ * 16,
                         OregenConfig.MIN_VEIN_SIZE, OregenConfig.MAX_VEIN_SIZE, OregenConfig.CHANCES_TO_SPAWN, OregenConfig.MIN_Y, OregenConfig.MAX_Y);
+
+                addOreSpawn(ModBlocks.blockCinoiteOre, (byte) OreType.ORE_OVERWORLD.ordinal(), Blocks.STONE, world, random, chunkX * 16, chunkZ * 16,
+                        OregenConfig.MIN_VEIN_SIZE, OregenConfig.MAX_VEIN_SIZE, OregenConfig.CHANCES_TO_SPAWN, OregenConfig.MIN_Y, OregenConfig.MAX_Y);
+
+                addOreSpawn(ModBlocks.blockCinoideOre, (byte) OreType.ORE_OVERWORLD.ordinal(), Blocks.STONE, world, random, chunkX * 16, chunkZ * 16,
+                        OregenConfig.MIN_VEIN_SIZE, OregenConfig.MAX_VEIN_SIZE, OregenConfig.CHANCES_TO_SPAWN, OregenConfig.MIN_Y, OregenConfig.MAX_Y);
             }
         } else if (world.provider.getDimension() == DimensionType.NETHER.getId()) {
             if (OregenConfig.GENERATE_NETHER) {

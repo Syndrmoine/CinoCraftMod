@@ -27,7 +27,7 @@ public class BlockCinoOre extends Block {
         setHardness(3.0f);
         setResistance(5.0f);
         setHarvestLevel("pickaxe", 2);
-        setUnlocalizedName(mymod.MODID + ".cino_ore");
+        setTranslationKey(mymod.MODID + ".cino_ore");
         setRegistryName("cino_ore");
         setCreativeTab(mymod.creativeTab);
     }

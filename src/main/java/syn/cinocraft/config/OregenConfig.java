@@ -16,10 +16,10 @@ public class OregenConfig {
     public static boolean GENERATE_OVERWORLD = true;
 
     @Config.Comment(value = "Generate ore in the nether")
-    public static boolean GENERATE_NETHER = true;
+    public static boolean GENERATE_NETHER = false;
 
     @Config.Comment(value = "Generate ore in the end")
-    public static boolean GENERATE_END = true;
+    public static boolean GENERATE_END = false;
 
     @Config.Comment(value = "Minimum size of every ore vein")
     public static int MIN_VEIN_SIZE = 4;
@@ -35,4 +35,5 @@ public class OregenConfig {
 
     @Config.Comment(value = "Maximum height for the ore")
     public static int MAX_Y = 50;
+
 }

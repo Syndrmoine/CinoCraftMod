@@ -35,7 +35,7 @@ public class BlockCinoFurnace extends Block implements ITileEntityProvider {
     public BlockCinoFurnace() {
         super(Material.IRON);
         setRegistryName("cinofurnace");
-        setUnlocalizedName(mymod.MODID + ".cinofurnace");
+        setTranslationKey(mymod.MODID + ".cinofurnace");
         setHarvestLevel("pickaxe",1);
         setCreativeTab(mymod.creativeTab);
 
@@ -65,7 +65,7 @@ public class BlockCinoFurnace extends Block implements ITileEntityProvider {
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        return getDefaultState().withProperty(FACING, EnumFacing.getFront(meta & 7));
+        return getDefaultState().withProperty(FACING, EnumFacing.byIndex(meta & 7));
     }
 
     @Override
