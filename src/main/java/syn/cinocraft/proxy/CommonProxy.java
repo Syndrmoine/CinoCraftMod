@@ -10,12 +10,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import syn.cinocraft.ModBlocks;
-import syn.cinocraft.machines.cinofurnace.BlockCinoFurnace;
-import syn.cinocraft.machines.cinofurnace.GuiCinoFurnace;
-import syn.cinocraft.machines.cinofurnace.TileCinoFurnace;
-import syn.cinocraft.mymod;
 
 import static syn.cinocraft.mymod.instance;
 
@@ -32,13 +27,16 @@ public class CommonProxy {
     }
 
     @SubscribeEvent
-    public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        event.getRegistry().register(new BlockCinoFurnace());
-        GameRegistry.registerTileEntity(TileCinoFurnace.class, mymod.MODID + "_cinofurnace");
+    public static void registerBlocks(RegistryEvent.Register<Block> event)
+    {
+        ModBlocks.register(event.getRegistry());
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().register(new ItemBlock(ModBlocks.cinofurnace).setRegistryName(ModBlocks.cinofurnace.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.blockCinoOre).setRegistryName(ModBlocks.blockCinoOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.blockCinoideOre).setRegistryName(ModBlocks.blockCinoideOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.blockCinoiteOre).setRegistryName(ModBlocks.blockCinoiteOre.getRegistryName()));
     }
 }

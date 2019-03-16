@@ -115,6 +115,7 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
 
     private CombinedInvWrapper combinedHandler = new CombinedInvWrapper(inputHandler, outputHandler);
 
+
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);

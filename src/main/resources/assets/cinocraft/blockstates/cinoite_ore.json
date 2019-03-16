@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}],
+    "oretype": {
+      "overworld": { "model": "cube_all", "textures": { "all": "cinocraft:blocks/cinoite_ore" } },
+      "nether": { "model": "cube_all", "textures": { "all": "cinocraft:blocks/cinoite_ore" } },
+      "end": { "model": "cube_all", "textures": { "all": "cinocraft:blocks/cinoite_ore" } }
+    }
+  }
+}
