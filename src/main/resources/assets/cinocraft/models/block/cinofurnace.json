@@ -1,0 +1,12 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "particle": "cinocraft:blocks/cinofurnaceside",
+    "up": "cinocraft:blocks/cinofurnacetop",
+    "down": "cinocraft:blocks/cinofurnacetop",
+    "north": "cinocraft:blocks/cinofurnacelit",
+    "east": "cinocraft:blocks/cinofurnaceside",
+    "south": "cinocraft:blocks/cinofurnaceside",
+    "west": "cinocraft:blocks/cinofurnaceside"
+  }
+}

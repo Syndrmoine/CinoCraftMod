@@ -1,0 +1,24 @@
+{
+  "result": {
+    "item": "cinocraft:cinofurnace",
+    "count": 1
+  },
+  "pattern": [
+    " T ",
+    "cMc",
+    " T "
+  ],
+  "type": "cinocraft:copy_nbt",
+  "key": {
+    "c": {
+      "item": "minecraft:crafting_table"
+    },
+    "T": {
+      "item": "minecraft:redstone_torch"
+    },
+    "M": {
+      "item": "minecraft:dirt",
+      "data": 0
+    }
+  }
+}

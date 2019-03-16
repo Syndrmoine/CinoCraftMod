@@ -1,0 +1,16 @@
+[
+{
+  "modid": "cinocraft",
+  "name": "CinoCraft",
+  "description": "No idea what this will be.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Syndrmoine"],
+  "credits": "Neil for testing",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
