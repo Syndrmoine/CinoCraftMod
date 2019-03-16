@@ -10,13 +10,16 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import syn.cinocraft.ModBlocks;
+import syn.cinocraft.worldgen.OreGenerator;
 
 import static syn.cinocraft.mymod.instance;
 
 @Mod.EventBusSubscriber
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent e) {
+        GameRegistry.registerWorldGenerator(OreGenerator.instance, 5);
     }
 
     public void init(FMLInitializationEvent e) {

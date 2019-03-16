@@ -11,6 +11,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;
+import syn.cinocraft.config.CinoFurnaceConfig;
 
 import javax.annotation.Nonnull;
 
@@ -19,8 +20,6 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
     public static final int INPUT_SLOTS = 3;
     public static final int OUTPUT_SLOTS = 3;
     public static final int SIZE = INPUT_SLOTS + OUTPUT_SLOTS;
-
-    public static final int MAX_PROGRESS = 10;
 
     private int progress = 0;
 
@@ -56,7 +55,7 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
             ItemStack result = FurnaceRecipes.instance().getSmeltingResult(inputHandler.getStackInSlot(i));
             if (!result.isEmpty()) {
                 if (insertOutput(result.copy(), true)) {
-                    progress = MAX_PROGRESS;
+                    progress = CinoFurnaceConfig.MAX_PROGRESS;
                     markDirty();
                 }
                 break;
