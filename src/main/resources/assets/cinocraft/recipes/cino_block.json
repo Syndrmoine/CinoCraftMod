@@ -1,20 +1,17 @@
 {
   "result": {
-    "item": "cinocraft:cinofurnace",
+    "item": "cinocraft:cino_block",
     "count": 1
   },
   "pattern": [
     "TTT",
-    "TMT",
+    "TTT",
     "TTT"
   ],
-  "type": "cinocraft:copy_nbt",
+  "type": "minecraft:crafting_shaped",
   "key": {
     "T": {
       "item": "cinocraft:cino_ingot"
-    },
-    "M": {
-      "item": "cinocraft:cino_block"
     }
   }
 }

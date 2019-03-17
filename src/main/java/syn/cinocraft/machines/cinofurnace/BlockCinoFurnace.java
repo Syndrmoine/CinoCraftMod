@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -16,7 +17,10 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ChunkCache;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -25,6 +29,8 @@ import syn.cinocraft.mymod;
 import javax.annotation.Nullable;
 
 public class BlockCinoFurnace extends Block implements ITileEntityProvider {
+
+
 
     public static final int GUI_ID = 1;
 
@@ -89,4 +95,5 @@ public class BlockCinoFurnace extends Block implements ITileEntityProvider {
         player.openGui(mymod.instance, GUI_ID, world, pos.getX(), pos.getY(), pos.getZ());
         return true;
     }
+
 }

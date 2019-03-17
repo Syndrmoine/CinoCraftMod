@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "cinocraft:blocks/cino_block"
+  }
+}

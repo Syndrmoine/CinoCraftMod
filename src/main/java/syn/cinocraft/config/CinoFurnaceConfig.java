@@ -7,5 +7,5 @@ import syn.cinocraft.mymod;
 public class CinoFurnaceConfig {
 
     @Config.Comment(value = "Number of ticks for one smelting operation")
-    public static int MAX_PROGRESS = 10;
+    public static int MAX_PROGRESS = 2000;
 }

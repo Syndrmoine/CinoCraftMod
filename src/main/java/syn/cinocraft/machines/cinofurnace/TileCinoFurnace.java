@@ -1,9 +1,12 @@
 package syn.cinocraft.machines.cinofurnace;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
@@ -14,6 +17,7 @@ import net.minecraftforge.items.wrapper.CombinedInvWrapper;
 import syn.cinocraft.config.CinoFurnaceConfig;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 public class TileCinoFurnace extends TileEntity implements ITickable {
 
@@ -26,6 +30,8 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
     @Override
     public void update() {
         if (!world.isRemote) {
+                    }
+
             if (progress > 0) {
                 progress--;
                 if (progress <= 0) {
@@ -36,7 +42,7 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
                 startsmelt();
             }
         }
-    }
+
 
     private boolean insertOutput(ItemStack output, boolean simulate) {
         for (int i = 0 ; i < OUTPUT_SLOTS ; i++) {
@@ -116,6 +122,15 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
 
 
     @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        super.writeToNBT(compound);
+        compound.setTag("itemsIn", inputHandler.serializeNBT());
+        compound.setTag("itemsOut", outputHandler.serializeNBT());
+        compound.setInteger("progress", progress);
+        return compound;
+    }
+
+    @Override
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
         if (compound.hasKey("itemsIn")) {
@@ -126,15 +141,6 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
         }
 
         progress = compound.getInteger("progress");
-    }
-
-    @Override
-    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-        super.writeToNBT(compound);
-        compound.setTag("itemsIn", inputHandler.serializeNBT());
-        compound.setTag("itemsOut", outputHandler.serializeNBT());
-        compound.setInteger("progress", progress);
-        return compound;
     }
 
     public boolean canInteractWith(EntityPlayer playerIn) {

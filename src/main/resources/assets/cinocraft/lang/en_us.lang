@@ -2,5 +2,8 @@ tile.cinocraft.cinofurnace.name=Cino Furnace
 tile.cinocraft.cino_ore.name=Cino Ore
 tile.cinocraft.cinoite_ore.name=Cinoite Ore
 tile.cinocraft.cinoide_ore.name=Cinoide Ore
+tile.cinocraft.cino_block.name=Cino Block
+
+item.cinocraft.cino_ingot.name=Cino Ingot
 
 itemGroup.cinocraft=CinoCraft
