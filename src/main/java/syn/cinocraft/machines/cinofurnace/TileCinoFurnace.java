@@ -14,7 +14,6 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;
-import syn.cinocraft.config.CinoFurnaceConfig;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -25,13 +24,13 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
     public static final int OUTPUT_SLOTS = 3;
     public static final int SIZE = INPUT_SLOTS + OUTPUT_SLOTS;
 
+
+    public static int MAX_PROGRESS = 10;
     private int progress = 0;
 
     @Override
     public void update() {
         if (!world.isRemote) {
-                    }
-
             if (progress > 0) {
                 progress--;
                 if (progress <= 0) {
@@ -42,7 +41,7 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
                 startsmelt();
             }
         }
-
+    }
 
     private boolean insertOutput(ItemStack output, boolean simulate) {
         for (int i = 0 ; i < OUTPUT_SLOTS ; i++) {
@@ -53,7 +52,7 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
         }
         return  false;
 
-        }
+    }
 
 
     private void startsmelt() {
@@ -61,7 +60,7 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
             ItemStack result = FurnaceRecipes.instance().getSmeltingResult(inputHandler.getStackInSlot(i));
             if (!result.isEmpty()) {
                 if (insertOutput(result.copy(), true)) {
-                    progress = CinoFurnaceConfig.MAX_PROGRESS;
+                    progress = MAX_PROGRESS;
                     markDirty();
                 }
                 break;
@@ -134,10 +133,10 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
         if (compound.hasKey("itemsIn")) {
-            inputHandler.deserializeNBT((NBTTagCompound) compound.getTag("items"));
+            inputHandler.deserializeNBT((NBTTagCompound) compound.getTag("itemsIn"));
         }
         if (compound.hasKey("itemsOut")) {
-            outputHandler.deserializeNBT((NBTTagCompound) compound.getTag("items"));
+            outputHandler.deserializeNBT((NBTTagCompound) compound.getTag("itemsOut"));
         }
 
         progress = compound.getInteger("progress");

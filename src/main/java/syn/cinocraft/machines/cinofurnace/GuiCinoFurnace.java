@@ -2,8 +2,6 @@ package syn.cinocraft.machines.cinofurnace;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.util.ResourceLocation;
-import syn.cinocraft.config.CinoFurnaceConfig;
-import syn.cinocraft.config.CinoFurnaceConfig;
 import syn.cinocraft.mymod;
 
 public class GuiCinoFurnace extends GuiContainer {
@@ -30,7 +28,7 @@ public class GuiCinoFurnace extends GuiContainer {
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 
         if (furnace.getProgress() > 0) {
-            int percentage = 100 - furnace.getProgress() * 100 / CinoFurnaceConfig.MAX_PROGRESS;
+            int percentage = 100 - furnace.getProgress() * 100 / TileCinoFurnace.MAX_PROGRESS;
             drawString(mc.fontRenderer, "Progress: " + percentage + "%", guiLeft + 10, guiTop + 50, 0xffffff);
         }
     }
