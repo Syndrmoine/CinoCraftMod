@@ -27,6 +27,7 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
 
     public static int MAX_PROGRESS = 10;
     private int progress = 0;
+    private int clientProgress = -1;
 
     @Override
     public void update() {
@@ -86,8 +87,14 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
         return progress;
     }
 
-    public void setProgress(int progress) {
-        this.progress = progress;
+    public void setProgress(int progress) { this.progress = progress; }
+
+    public int getClientProgress() {
+        return clientProgress;
+    }
+
+    public void setClientProgress(int clientProgress) {
+        this.clientProgress = clientProgress;
     }
 
     private ItemStackHandler inputHandler = new ItemStackHandler(INPUT_SLOTS){
@@ -119,16 +126,6 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
 
     private CombinedInvWrapper combinedHandler = new CombinedInvWrapper(inputHandler, outputHandler);
 
-
-    @Override
-    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-        super.writeToNBT(compound);
-        compound.setTag("itemsIn", inputHandler.serializeNBT());
-        compound.setTag("itemsOut", outputHandler.serializeNBT());
-        compound.setInteger("progress", progress);
-        return compound;
-    }
-
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
@@ -140,6 +137,15 @@ public class TileCinoFurnace extends TileEntity implements ITickable {
         }
 
         progress = compound.getInteger("progress");
+    }
+
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        super.writeToNBT(compound);
+        compound.setTag("itemsIn", inputHandler.serializeNBT());
+        compound.setTag("itemsOut", outputHandler.serializeNBT());
+        compound.setInteger("progress", progress);
+        return compound;
     }
 
     public boolean canInteractWith(EntityPlayer playerIn) {
