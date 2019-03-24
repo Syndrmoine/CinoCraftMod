@@ -1,15 +1,12 @@
 package syn.cinocraft;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Logger;
 import syn.cinocraft.proxy.CommonProxy;
 
@@ -18,7 +15,7 @@ public class mymod {
 
     public static final String MODID = "cinocraft";
     public static final String MODNAME = "CinoCraft";
-    public static final String MODVERSION = "0.0.1a";
+    public static final String MODVERSION = "0.0.2a";
 
     @SidedProxy(clientSide = "syn.cinocraft.proxy.ClientProxy", serverSide = "syn.cinocraft.proxy.ServerProxy")
     public static CommonProxy proxy;
